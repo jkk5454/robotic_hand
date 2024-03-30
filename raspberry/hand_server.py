@@ -97,12 +97,12 @@ class EchoHandler(BaseRequestHandler):
 
              # Left Motor cmd
             if msg == L_HAND_M_C_CMD:
-                GPIO.output(LEFT_HAND_M_GPIO, True)
+                GPIO.output(LEFT_HAND_M_GPIO, False)
                 GPIO.output(LEFT_HAND_ENABLE, True)
                 time.sleep(5.0)
                 GPIO.output(LEFT_HAND_ENABLE, False)
             elif msg == L_HAND_M_O_CMD:
-                GPIO.output(LEFT_HAND_M_GPIO, False)
+                GPIO.output(LEFT_HAND_M_GPIO, True)
                 GPIO.output(LEFT_HAND_ENABLE, True)
                 time.sleep(5.0)
                 GPIO.output(LEFT_HAND_ENABLE, False)
@@ -129,7 +129,7 @@ class EchoHandler(BaseRequestHandler):
                 GPIO.output(RIGHT_HAND_P_GPIO, True)
             # Dual Hand motor cmd
             elif msg == D_HAND_M_C_CMD:
-                GPIO.output(LEFT_HAND_M_GPIO, True)
+                GPIO.output(LEFT_HAND_M_GPIO, False)
                 GPIO.output(RIGHT_HAND_M_GPIO, True)
                 GPIO.output(LEFT_HAND_ENABLE, True)
                 GPIO.output(RIGHT_HAND_ENABLE, True)
@@ -137,11 +137,11 @@ class EchoHandler(BaseRequestHandler):
                 GPIO.output(LEFT_HAND_ENABLE, False)
                 GPIO.output(RIGHT_HAND_ENABLE, False)
             elif msg == D_HAND_M_O_CMD:
+                GPIO.output(LEFT_HAND_M_GPIO, True)
                 GPIO.output(RIGHT_HAND_M_GPIO, False)
-                GPIO.output(LEFT_HAND_M_GPIO, False)
                 GPIO.output(LEFT_HAND_ENABLE, True)
                 GPIO.output(RIGHT_HAND_ENABLE, True)
-                time.sleep(5.0)
+                time.sleep(10.0)
                 GPIO.output(RIGHT_HAND_ENABLE, False)
                 GPIO.output(LEFT_HAND_ENABLE, False)
             # Dual Pump cmd
@@ -156,37 +156,37 @@ class EchoHandler(BaseRequestHandler):
             elif msg == L_HAND_S_C_CMD:
                GPIO.output(LEFT_HAND_SM_GPIO, True)
                GPIO.output(LEFT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
+               time.sleep(1.0)
                GPIO.output(LEFT_HAND_S_ENABLE, False)
             elif msg == L_HAND_S_O_CMD:
                GPIO.output(LEFT_HAND_SM_GPIO, False)
                GPIO.output(LEFT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
+               time.sleep(1.0)
                GPIO.output(LEFT_HAND_S_ENABLE, False)
             elif msg == R_HAND_S_C_CMD:
-               GPIO.output(RIGHT_HAND_SM_GPIO, True)
-               GPIO.output(RIGHT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
-               GPIO.output(RIGHT_HAND_S_ENABLE, False)
-            elif msg == R_HAND_S_O_CMD:
                GPIO.output(RIGHT_HAND_SM_GPIO, False)
                GPIO.output(RIGHT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
+               time.sleep(1.0)
+               GPIO.output(RIGHT_HAND_S_ENABLE, False)
+            elif msg == R_HAND_S_O_CMD:
+               GPIO.output(RIGHT_HAND_SM_GPIO, True)
+               GPIO.output(RIGHT_HAND_S_ENABLE, True)
+               time.sleep(1.0)
                GPIO.output(RIGHT_HAND_S_ENABLE, False) 
             elif msg == D_HANDF2_M_C_CMD:
                GPIO.output(LEFT_HAND_SM_GPIO, True)
-               GPIO.output(RIGHT_HAND_SM_GPIO, True)
+               GPIO.output(RIGHT_HAND_SM_GPIO, False)
                GPIO.output(LEFT_HAND_S_ENABLE, True)
                GPIO.output(RIGHT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
+               time.sleep(1.0)
                GPIO.output(LEFT_HAND_S_ENABLE, False)
                GPIO.output(RIGHT_HAND_S_ENABLE, False)
             elif msg == D_HANDF2_M_O_CMD:
                GPIO.output(LEFT_HAND_SM_GPIO, False)
-               GPIO.output(RIGHT_HAND_SM_GPIO, False)
+               GPIO.output(RIGHT_HAND_SM_GPIO, True)
                GPIO.output(LEFT_HAND_S_ENABLE, True)
                GPIO.output(RIGHT_HAND_S_ENABLE, True)
-               time.sleep(4.5)
+               time.sleep(1.0)
                GPIO.output(LEFT_HAND_S_ENABLE, False)
                GPIO.output(RIGHT_HAND_S_ENABLE, False)
             
